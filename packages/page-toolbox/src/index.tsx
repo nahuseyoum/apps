@@ -13,6 +13,9 @@ import Hash from './Hash';
 import Rpc from './Rpc';
 import Sign from './Sign';
 import Verify from './Verify';
+
+import TokenManagerSign from './TokenManagerSign';
+import TokenManagerVerify from './TokenManagerVerify';
 import { useTranslation } from './translate';
 
 const HIDDEN_ACC = ['sign', 'verify'];
@@ -38,6 +41,14 @@ function ToolboxApp ({ basePath }: Props): React.ReactElement<Props> {
     {
       name: 'verify',
       text: t<string>('Verify signature')
+    },
+    {
+      name: 'tokenManagerSign',
+      text: t<string>('Sign transfer data')
+    },
+    {
+      name: 'tokenManagerVerify',
+      text: t<string>('Verify transfer signature')
     }
   ]);
 
@@ -54,6 +65,8 @@ function ToolboxApp ({ basePath }: Props): React.ReactElement<Props> {
         <Route path={`${basePath}/hash`}><Hash /></Route>
         <Route path={`${basePath}/sign`}><Sign /></Route>
         <Route path={`${basePath}/verify`}><Verify /></Route>
+        <Route path={`${basePath}/tokenManagerSign`}><TokenManagerSign /></Route>
+        <Route path={`${basePath}/tokenManagerVerify`}><TokenManagerVerify /></Route>
         <Route><Rpc /></Route>
       </Switch>
     </main>
